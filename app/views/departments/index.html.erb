@@ -1,2 +1,12 @@
-<h1>Departments#index</h1>
-<p>Find me in app/views/departments/index.html.erb</p>
+<h1> Welcome to the Department Listing </h1>
+<ul>
+  <% @departments.each do |dep| %> 
+    <li> <%= link_to(dep.name, dep) %> </li>
+
+    <!-- SAME THING:  <li> <%= link_to dep.name,  department_path(dep) %> </li> -->
+
+  <% end %>
+</ul>
+<hr>
+<!-- NOTICE that the '$ rails routes'  for going to /department/new   has the prefix 'new_department' , and that is the prefix to '_path' i think as I came up with  new_department_path below: -->
+<%= link_to "Add a Department", new_department_path %>  

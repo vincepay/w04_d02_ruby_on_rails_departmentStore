@@ -1,0 +1,17 @@
+<!-- the form wants to receive @department. Thus both edit and new need to send @department variable to it -->
+<!-- the new method creates an empty record thus its id value is nil. While the edit method  takes one entry of the table.  Which one ? well, it receives the params, and takes the id from it  (which is taken from the url the user puts in browser)  and finds the entry that will then send to the form.  In which case, the @department.id is NOT nil, so its true, so 'Edit Departmen' is shown. -->
+
+<!-- I think the :name  and :acrony  s.how take value from the @department, thats why the form is already filled when you get to the form via 'edit'  and is empty when you get here via 'new' -->
+
+<!-- how does the form button shows "create department" OR "update department"??? -->
+
+<h1><%= @department.id ? 'Edit Department' : 'Create Department' %></h1>
+<hr />
+<!-- form_for for --> 
+<%= form_for @department do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <%= f.label :acronym %>
+  <%= f.text_field :acronym, required: true, autofocus: true %>
+  <%= f.submit %>
+<% end %>

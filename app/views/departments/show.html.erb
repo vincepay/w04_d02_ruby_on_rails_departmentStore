@@ -1,2 +1,15 @@
-<h1>Departments#show</h1>
-<p>Find me in app/views/departments/show.html.erb</p>
+<h2> <%="Department:  " + @department.name + "(" + @department.acronym + ")" %> <h2>
+<h4> <%= "Dep ID:" + @department.id.to_s  %> </h4>
+<hr>
+
+<%- # the following block is a comment block -%>
+
+
+<!-- below,  edit_department_path(@department)  -- > departments/5/edit   -->
+<%= link_to 'Edit Department', edit_department_path(@department) %>
+<!-- below,    link_to '..' ,@department    -- >  department/6     or whatever department id -->
+<%= link_to 'Delete department', @department, method: :delete  %>     <!-- # have send it 3rd argument method delete -->
+
+
+
+
